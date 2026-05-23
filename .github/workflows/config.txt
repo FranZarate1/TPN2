@@ -18,8 +18,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Verificar versión Node
-        run: node --version
-
       - name: Ejecutar aplicación
         run: node prueba.js
+        
