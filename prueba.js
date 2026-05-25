@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hola desde CI/CD 🚀');
+  res.send('Feliz 25 de mayo para todos! ');
 });
 
 app.listen(PORT, () => {
