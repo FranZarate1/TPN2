@@ -1,0 +1,25 @@
+{
+  "name": "tpn2",
+  "version": "1.0.0",
+  "description": "Control de versiones para las practicas de CI/CD",
+  "main": "prueba.js",
+  "scripts": {
+    "start": "node prueba.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranZarate1/TPN2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FranZarate1/TPN2/issues"
+  },
+  "homepage": "https://github.com/FranZarate1/TPN2#readme",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
