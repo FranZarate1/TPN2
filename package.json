@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/FranZarate1/TPN2#readme",
   "devDependencies": {
-    "jest": "^30.4.2"
+    "jest": "^30.4.2",
+    "supertest": "^7.2.2"
   },
   "dependencies": {
     "express": "^5.2.1"
