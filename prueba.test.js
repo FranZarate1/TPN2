@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./prueba');
+const app = require('./ejemplo');
 
 describe('Servidor Express', () => {
 
