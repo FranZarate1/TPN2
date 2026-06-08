@@ -7,7 +7,7 @@ describe('Servidor Express', () => {
 
     const response = await request(app).get('/');
 
-    expect(response.statusCode).toBe(400);
+    expect(response.statusCode).toBe(200);
 
     expect(response.text).toBe(
       'probando mi entorno de CI Y CD'
