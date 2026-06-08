@@ -24,6 +24,9 @@ jobs:
       - name: ejecutar test
         run: npm test
 
+      - name: Construir imagen Docker
+        run: docker build -t tpn2 .
+
       - name: Notificar éxito por Telegram
         if: success()
         run: |
