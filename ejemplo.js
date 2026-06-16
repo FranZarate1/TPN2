@@ -25,7 +25,7 @@ function lbToKg(lb) {
     throw new Error('El peso no puede ser negativo');
 
   return parseFloat(
-    (lb * libra).toFixed(2)
+    (lb / libra).toFixed(2)
   );
 
 }
