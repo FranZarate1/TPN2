@@ -1,165 +1,117 @@
 const request = require('supertest');
 
 const {
-
-app,
-
-kgToLb,
-
-lbToKg
-
+  app,
+  kgToLb,
+  lbToKg
 } = require('./ejemplo');
 
-describe('Gym Weight Converter',()=>{
+describe('Gym Weight Converter', () => {
 
+  describe('kgToLb()', () => {
 
-describe('kgToLb()',()=>{
+    test('100 kg = 220.46 lb', () => {
 
+      expect(
+        kgToLb(100)
+      ).toBe(220.46);
 
-test('100 kg = 220.46 lb',()=>{
+    });
 
-expect(
+    test('0 kg = 0 lb', () => {
 
-kgToLb(100)
+      expect(
+        kgToLb(0)
+      ).toBe(0);
 
-).toBe(220.46);
+    });
 
-});
+    test('valor negativo lanza error', () => {
 
+      expect(
+        () => kgToLb(-1)
+      ).toThrow('negativo');
 
-test('0 kg = 0 lb',()=>{
+    });
 
-expect(
+  });
 
-kgToLb(0)
+  describe('lbToKg()', () => {
 
-).toBe(0);
+    test('220.46 lb = 100 kg', () => {
 
-});
+      expect(
+        lbToKg(220.46)
+      ).toBe(100);
 
+    });
 
-test('valor negativo lanza error',()=>{
+    test('0 lb = 0 kg', () => {
 
-expect(
+      expect(
+        lbToKg(0)
+      ).toBe(0);
 
-()=>kgToLb(-1)
+    });
 
-).toThrow('negativo');
+    test('valor negativo lanza error', () => {
 
-});
+      expect(
+        () => lbToKg(-5)
+      ).toThrow('negativo');
 
-});
+    });
 
+  });
 
-describe('lbToKg()',()=>{
+  describe('GET /convert/kg/:value', () => {
 
+    test('convierte 100 kg', async () => {
 
-test('220.46 lb = 100 kg',()=>{
+      const res = await request(app)
+        .get('/convert/kg/100');
 
-expect(
+      expect(
+        res.statusCode
+      ).toBe(200);
 
-lbToKg(220.46)
+      expect(
+        res.body
+      ).toEqual({
 
-).toBe(100);
+        kg: 100,
 
-});
+        lb: 220.46
 
+      });
 
-test('0 lb = 0 kg',()=>{
+    });
 
-expect(
+  });
 
-lbToKg(0)
+  describe('GET /convert/lb/:value', () => {
 
-).toBe(0);
+    test('convierte 220.46 lb', async () => {
 
-});
+      const res = await request(app)
+        .get('/convert/lb/220.46');
 
+      expect(
+        res.statusCode
+      ).toBe(200);
 
-test('valor negativo lanza error',()=>{
+      expect(
+        res.body
+      ).toEqual({
 
-expect(
+        lb: 220.46,
 
-()=>lbToKg(-5)
+        kg: 100
 
-).toThrow('negativo');
+      });
 
-});
+    });
 
-});
-
-
-describe('GET /convert/kg/:value',()=>{
-
-
-test('convierte 100 kg',async()=>{
-
-
-const res=
-
-await request(app)
-
-.get('/convert/kg/100');
-
-
-expect(
-
-res.statusCode
-
-).toBe(200);
-
-
-expect(
-
-res.body
-
-).toEqual({
-
-kg:100,
-
-lb:220.46
-
-});
-
-});
-
-});
-
-
-describe('GET /convert/lb/:value',()=>{
-
-
-test('convierte 220.46 lb',async()=>{
-
-
-const res=
-
-await request(app)
-
-.get('/convert/lb/220.46');
-
-
-expect(
-
-res.statusCode
-
-).toBe(200);
-
-
-expect(
-
-res.body
-
-).toEqual({
-
-lb:220.46,
-
-kg:100
-
-});
-
-});
-
-});
+  });
 
 });

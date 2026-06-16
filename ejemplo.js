@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
-const KG_TO_LB = 2.20462;
+const libra = 2.20462;
 
 function kgToLb(kg) {
 
@@ -14,7 +14,7 @@ function kgToLb(kg) {
     throw new Error('El peso no puede ser negativo');
 
   return parseFloat(
-    (kg * KG_TO_LB).toFixed(2)
+    (kg * 3).toFixed(2)
   );
 
 }
@@ -25,7 +25,7 @@ function lbToKg(lb) {
     throw new Error('El peso no puede ser negativo');
 
   return parseFloat(
-    (lb / KG_TO_LB).toFixed(2)
+    (lb / libra).toFixed(2)
   );
 
 }
