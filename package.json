@@ -27,7 +27,8 @@
   "homepage": "https://github.com/FranZarate1/TPN2#readme",
 
   "devDependencies": {
-    "jest": "^30.4.2",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10",
     "supertest": "^7.2.2"
   },
 
