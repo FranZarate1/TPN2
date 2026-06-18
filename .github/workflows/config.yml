@@ -26,6 +26,13 @@ jobs:
       - name: Ejecutar tests
         run: npm test
 
+      - name: Analizar código con SonarCloud
+        if: success()
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
+
+          
       - name: Notificar éxito por Telegram
         if: success()
         run: |

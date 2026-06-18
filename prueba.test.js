@@ -6,6 +6,8 @@ const {
   lbToKg
 } = require('./ejemplo');
 
+ "suits de test"
+
 describe('Gym Weight Converter', () => {
 
   describe('kgToLb()', () => {
@@ -16,7 +18,7 @@ describe('Gym Weight Converter', () => {
         kgToLb(100)
       ).toBe(220.46);
 
-    });
+    });     "un test unitario que se fija si 100kg son 220 libras aprox"
 
     test('0 kg = 0 lb', () => {
 
@@ -35,7 +37,7 @@ describe('Gym Weight Converter', () => {
     });
 
   });
-
+  "similar al otro test pero lo hace al pasaje al reves"
   describe('lbToKg()', () => {
 
     test('220.46 lb = 100 kg', () => {
@@ -53,7 +55,7 @@ describe('Gym Weight Converter', () => {
       ).toBe(0);
 
     });
-
+    "testea que los valores negativos no se acepten y den error "
     test('valor negativo lanza error', () => {
 
       expect(
@@ -63,7 +65,7 @@ describe('Gym Weight Converter', () => {
     });
 
   });
-
+   "prueba haciendo peticiones a la aplicacion desplegada"
   describe('GET /convert/kg/:value', () => {
 
     test('convierte 100 kg', async () => {
