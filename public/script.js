@@ -47,6 +47,21 @@ const data=
 
 await response.json();
 
+// Client-side validation: block non-numeric values (e.g., 'e') before sending
+if (valor === null || valor.trim() === '' || isNaN(Number(valor))) {
+
+	document
+
+	.getElementById("resultado")
+
+	.innerHTML=
+
+	'Valor inválido';
+
+	return;
+
+}
+
 
 if(data.error){
 
